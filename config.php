@@ -9,7 +9,8 @@ $departureBoardAPI = "hafas/v1/arrivalStationBoard";
 // Choose which services to ignore for the announcements
 $ignoreServiceTypes = [
 	"Bus",
-	"STR"
+	"STR",
+	"U"
 ];
 
 // Only create announcements for platforms defined here. Leave empty to hear announcements for all platforms.
@@ -19,4 +20,4 @@ $platformWhitelist = [];
 $updateInterval = 60;
 
 // Command to produce speech
-$speechDispatcher = "espeak-ng -v de";
+$speechDispatcher = "gtts-cli -l de %speech% | mpg123 -q -";

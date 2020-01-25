@@ -29,12 +29,12 @@ while(true){
 		$arrivalStationAge = 0;
 	}
 
-	// Do the announcements
+	// Do the arrival announcements
 	foreach($arrivals as $arrival){
 		// Only run if our service is not blacklisted and its time has come
 		if(	
 			!in_array($arrival["train"]["type"], $ignoreServiceTypes)
-			and $arrival["arrival"]["scheduledTime"] / 1000 == time()
+			and $arrival["arrival"]["time"] / 1000 == time()
 		){
 			$announcement = generateArrivalAnnouncement(
 				$arrival["arrival"]["platform"],
@@ -44,7 +44,7 @@ while(true){
 				(isset($arrival["arrival"]["delay"]) ? $arrival["arrival"]["delay"] : 0)
 			);
 			echo "Dispatching announcement: ".$announcement."\n";
-			exec($speechDispatcher." ".escapeshellarg('"'.$announcement.'"'));
+			exec(str_replace("%speech%", escapeshellarg($announcement), $speechDispatcher));
 		}
 	}
 
