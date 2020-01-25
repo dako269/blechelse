@@ -15,5 +15,8 @@ $ignoreServiceTypes = [
 // Only create announcements for platforms defined here. Leave empty to hear announcements for all platforms.
 $platformWhitelist = [];
 
+// Updates every...
+$updateInterval = 60;
+
 // Command to produce speech
-$speechDispatcher = "espeak-ng -v de %speech%";
+$speechDispatcher = "espeak-ng -v de";
