@@ -41,7 +41,8 @@ while(true){
 				$arrival["train"]["name"],
 				$arrival["finalDestination"],
 				$arrival["arrival"]["scheduledTime"] / 1000,
-				(isset($arrival["arrival"]["delay"]) ? $arrival["arrival"]["delay"] : 0)
+				(isset($arrival["arrival"]["delay"]) ? $arrival["arrival"]["delay"] : 0),
+				$arrival["stops"]
 			);
 			echo "Dispatching announcement: ".$announcement."\n";
 			exec(str_replace("%speech%", escapeshellarg($announcement), $speechDispatcher));

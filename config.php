@@ -19,5 +19,11 @@ $platformWhitelist = [];
 // Updates every...
 $updateInterval = 60;
 
+// Minimum delay in minutes to be announced
+define("MINIMUM_DELAY_ANNOUNCEMENT", 5);
+
+// Amount of VIA stations to announce (0, 1 or 2 recommended)
+define("AMOUNT_VIA_STATIONS", 2);
+
 // Command to produce speech
 $speechDispatcher = "gtts-cli -l de %speech% | mpg123 -q -";
